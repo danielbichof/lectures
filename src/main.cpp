@@ -3,32 +3,35 @@
 
 #include "commons.h"
 #include "log.h"
-#include "Entity.h"
+
+class Entity
+{
+protected:
+	int X, Y;
+
+public:
+	Entity()
+	{
+		X = 0;
+		Y = 0;
+	}
+	void Print()
+	{
+		std::cout << X << " " << Y << std::endl;
+	}
+};
 
 class Player : public Entity
 {
 public:
-	Player(string s) : name(s) {}
-	string name;
-	string GetName() override { return name; }
-	string GetClassName() override { return name; }
+	Player()
+	{
+		X = 1;
+	}
 };
-
-void PrintName(Entity *obj)
-{
-	std::cout << obj->GetName() << std::endl;
-}
-
-void Print(Printable *obj)
-{
-	std::cout << obj->GetClassName() << std::endl;
-}
 
 int main()
 {
-	Entity *e = new Entity();
-	Player *player = new Player("Daniel");
-
-	Print(e);
-	Print(player);
+	Player p;
+	p.Print();
 }
