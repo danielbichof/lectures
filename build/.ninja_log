@@ -1,9 +1,0 @@
-# ninja log v5
-2	450	1707956388855972684	CMakeFiles/main.dir/src/main.cpp.o	3398b76dd0a30eec
-1	750	1707956171251050584	CMakeFiles/main.dir/src/commons.cpp.o	c2f3e0b7c4f7290c
-1	556	1707956171059053735	CMakeFiles/main.dir/src/log.cpp.o	e074721b0ed48c52
-451	565	1707956388967971319	main	34ad5ca73d5f063
-1	304	1707956598953716587	CMakeFiles/main.dir/src/log.cpp.o	ddf6b0514f0ab7df
-0	379	1707956599029715866	CMakeFiles/main.dir/src/commons.cpp.o	d6cef5f1350a3dc0
-1	395	1707956599045715715	CMakeFiles/main.dir/src/main.cpp.o	419ce162291bbd9b
-395	484	1707956599133714880	main	34ad5ca73d5f063
