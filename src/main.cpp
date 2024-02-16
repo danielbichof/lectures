@@ -1,37 +1,30 @@
 
 #include <iostream>
-
+#include <string>
 #include "commons.h"
-#include "log.h"
 
 class Entity
 {
-protected:
-	int X, Y;
+private:
+	std::string m_Name;
+	int m_points;
 
 public:
-	Entity()
+	Entity() : m_Name("Unknown"), m_points(0)
 	{
-		X = 0;
-		Y = 0;
 	}
-	void Print()
-	{
-		std::cout << X << " " << Y << std::endl;
-	}
-};
 
-class Player : public Entity
-{
-public:
-	Player()
+	Entity(const std::string &name) : m_Name(name), m_points(0)
 	{
-		X = 1;
 	}
+
+	const std::string &GetName() const { return m_Name; }
 };
 
 int main()
 {
-	Player p;
-	p.Print();
+	Entity e0;
+	std::cout << e0.GetName() << std::endl;
+	Entity e1("Daniel");
+	std::cout << e1.GetName() << std::endl;
 }
