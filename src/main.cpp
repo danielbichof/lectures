@@ -7,24 +7,23 @@ class Entity
 {
 private:
 	std::string m_Name;
-	int m_points;
+	int m_Age;
 
 public:
-	Entity() : m_Name("Unknown"), m_points(0)
-	{
-	}
-
-	Entity(const std::string &name) : m_Name(name), m_points(0)
-	{
-	}
-
-	const std::string &GetName() const { return m_Name; }
+	explicit Entity(const std::string &name) : m_Name(name), m_Age(-1) {}
+	Entity(int age) : m_Name("Unknown"), m_Age(age) {}
+	const string &GetName() const { return m_Name; }
 };
+
+void print(const Entity &entity) { std::cout << entity.GetName() << std::endl; }
 
 int main()
 {
-	Entity e0;
-	std::cout << e0.GetName() << std::endl;
-	Entity e1("Daniel");
-	std::cout << e1.GetName() << std::endl;
+	std::string name = "Daniel Bichof";
+	auto *entity = new Entity(name);
+	print(*entity);
+	delete entity;
+
+	Entity a("Bob");
+	print(a);
 }
