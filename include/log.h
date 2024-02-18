@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "commons.h"
-
+typedef std::string string;
 class Logger
 {
 public:

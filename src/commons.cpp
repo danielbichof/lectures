@@ -1,7 +1,7 @@
 
 #include "commons.h"
 
-string input(string text)
+std::string input(std::string text)
 {
 	std::string ss;
 	std::cout << text;

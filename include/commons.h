@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
-#include <memory>
+#include <cstring>
 
-typedef std::string string;
+// typedef std::string string;
 
-string input(string);
+std::string input(std::string);

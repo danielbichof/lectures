@@ -1,34 +1,54 @@
 
 #include "commons.h"
 
-class Entity
+class String
 {
 public:
-	int x;
-	Entity() {}
-	Entity(int x) : x(x) {}
-	~Entity()
+	String(const char *string)
 	{
-		std::cout << "Destroyed Entity " << x << std::endl;
+		m_Size = strlen(string);
+		m_Buffer = new char[m_Size];
+		memcpy(m_Buffer, string, m_Size);
 	}
 
-	void print() { std::cout << x << std::endl; }
+	~String()
+	{
+		delete[] m_Buffer;
+	}
+	String(const String &other) : m_Size(other.m_Size)
+	{
+		m_Buffer = new char[m_Size + 1];
+		memcpy(m_Buffer, other.m_Buffer, m_Size + 1);
+		std::cout << "Copied" << std::endl;
+	}
+	friend std::ostream &operator<<(std::ostream &o, const String &str);
+	char &operator[](const unsigned int index)
+	{
+		return m_Buffer[index];
+	}
+
+private:
+	char *m_Buffer;
+	unsigned int m_Size;
 };
 
-void PrintEntity(std::unique_ptr<Entity> &entity)
+std::ostream &operator<<(std::ostream &o, const String &str)
 {
-	entity->print();
+	o << str.m_Buffer;
+	return o;
+}
+
+void println(const String &string)
+{
+	std::cout << string << std::endl;
 }
 
 int main()
 {
-	{
-		std::weak_ptr<Entity> e0;
-		{
-			std::shared_ptr<Entity> entity_shared = std::make_shared<Entity>();
-			e0 = entity_shared;
-			std::unique_ptr<Entity> e_unique = std::make_unique<Entity>(10);
-			PrintEntity(e_unique);
-		}
-	}
+	String str = "Daniel";
+	String ss = str;
+	ss[4] = 'l';
+	ss[5] = 'o';
+	println(ss);
+	println(str);
 }
