@@ -1,10 +1,19 @@
+#include "GLFW/glfw3.h"
 
 #include "commons.h"
-#include "GLFW/glfw3.h"
+
+template <typename T, const int N>
+class Array
+{
+public:
+	const int size() const { return N; }
+
+private:
+	T m_Array[N];
+};
 
 int main()
 {
-	int a = glfwInit();
-	std::cout << a << std::endl;
-	std::cin.get();
+	Array<int, 20> a = Array<int, 20>();
+	std::cout << a.size() << std::endl;
 }
