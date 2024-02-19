@@ -3,12 +3,14 @@
 
 #include "commons.h"
 typedef std::string string;
+
 class Logger
 {
 public:
 	void error(string message);
 	void warn(string message);
-	void info(string message);
+	template <typename T>
+	void info(T message) { std::cout << "[" << counter_log_ << "] [INFO] " << message << std::endl; }
 
 private:
 	static int counter_log_;

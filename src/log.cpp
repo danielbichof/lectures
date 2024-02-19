@@ -14,8 +14,9 @@ void Logger::warn(std::string message)
 	std::cout << "[" << counter_log_ << "] " << message << std::endl;
 }
 
-void Logger::info(std::string message)
-{
-	counter_log_++;
-	std::cout << "[" << counter_log_ << "] " << message << std::endl;
-}
+// template <typename T>
+// void Logger::info(T message)
+// {
+// 	counter_log_++;
+// 	std::cout << "[" << counter_log_ << "] " << message << std::endl;
+// }

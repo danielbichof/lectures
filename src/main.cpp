@@ -1,19 +1,24 @@
 #include "GLFW/glfw3.h"
 
 #include "commons.h"
-
-template <typename T, const int N>
-class Array
+#include "log.h"
+class log
 {
 public:
-	const int size() const { return N; }
-
-private:
-	T m_Array[N];
+	template <typename T>
+	static void println(T stream)
+	{
+		std::cout << stream << std::endl;
+	}
 };
 
 int main()
 {
-	Array<int, 20> a = Array<int, 20>();
-	std::cout << a.size() << std::endl;
+	Logger logger;
+	auto name = "daniel";
+	auto a = 2.34;
+	auto x = 90;
+	logger.info(name);
+	logger.info(a);
+	logger.info(x);
 }
