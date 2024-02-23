@@ -1,6 +1,8 @@
 #include <iostream>
 #include <chrono>
 #include <thread>
+#include <array>
+#include <iomanip>
 
 #include "commons.h"
 #include "log.h"
@@ -24,24 +26,32 @@ struct Timer
 	}
 };
 
-class log
+void print(int count)
 {
-public:
-	template <typename T>
-	static void info(T stream)
-	{
-		std::cout << stream << std::endl;
-	}
-};
-
-void foo()
-{
-	Timer timer;
-	for (int i = 0; i < 10; i++)
-		log::info("Daniel");
+	std::cout
+		<< std::setw(2) << std::setfill('0') << count << " ";
 }
 
 int main()
 {
-	foo();
+	Timer timer;
+	int grid = 5;
+	int *array = new int[grid * grid];
+
+	for (int y = 0; y < grid; y++)
+	{
+		for (int x = 0; x < grid; x++)
+		{
+			array[x + y * grid] = x + y;
+		}
+	}
+	for (int y = 0; y < grid; y++)
+	{
+		for (int x = 0; x < grid; x++)
+		{
+			print(array[x + y * grid]);
+		}
+		std::cout << std::endl;
+	}
+	delete[] array;
 }
